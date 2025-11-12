@@ -45,7 +45,7 @@ for i, prompt in enumerate(prompts, start=1):
         is_seamless=False,
         temperature=1,
         top_k=256,
-        supercondition_factor=32,
+        supercondition_factor=50,
         is_verbose=False
     )
 

@@ -8,7 +8,7 @@ from min_dalle import MinDalle
 PROMPTS_FILE = "samples/input/sample_prompts.jsonl"
 OUTPUT_DIR = Path("samples/outputs")
 MODEL_NAME = "dalle-mini/dalle-mega"
-NUM_IMAGES = 1
+NUM_IMAGES = 10
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -41,11 +41,11 @@ for i, prompt in enumerate(prompts, start=1):
     image = model.generate_image(
         text=prompt,
         seed=-1,
-        grid_size=1,
+        grid_size=2,
         is_seamless=False,
         temperature=1,
         top_k=256,
-        supercondition_factor=50,
+        supercondition_factor=32,
         is_verbose=False
     )
 

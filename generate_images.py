@@ -8,7 +8,7 @@ from min_dalle import MinDalle
 PROMPTS_FILE = "samples/input/sample_prompts.jsonl"
 OUTPUT_DIR = Path("samples/outputs")
 MODEL_NAME = "dalle-mini/dalle-mega"
-NUM_IMAGES = 10
+NUM_IMAGES = 1
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -21,6 +21,7 @@ model = MinDalle(
     dtype=torch.float32,
     device=device,
     is_mega=True if "mega" in MODEL_NAME else False
+    is_reusable=True
 )
 
 # Load prompts
@@ -40,7 +41,9 @@ for i, prompt in enumerate(prompts, start=1):
     image = model.generate_image(
         text=prompt,
         seed=-1,
-        grid_size=3,
+        grid_size=1,
+        is_seamless=False,
+        temperature=1,
         top_k=256,
         supercondition_factor=32,
         is_verbose=False

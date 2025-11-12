@@ -40,10 +40,9 @@ for i, prompt in enumerate(prompts, start=1):
     image = model.generate_image(
         text=prompt,
         seed=-1,
-        grid_size=1,
-        progressive_outputs=True,
+        grid_size=3,
         top_k=256,
-        supercondition_factor=16,
+        supercondition_factor=32,
         is_verbose=False
     )
 

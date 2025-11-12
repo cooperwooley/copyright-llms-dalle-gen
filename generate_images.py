@@ -20,7 +20,7 @@ model = MinDalle(
     models_root="./pretrained",
     dtype=torch.float32,
     device=device,
-    is_mega=True if "mega" in MODEL_NAME else False
+    is_mega=True if "mega" in MODEL_NAME else False,
     is_reusable=True
 )
 

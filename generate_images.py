@@ -41,6 +41,7 @@ for i, prompt in enumerate(prompts, start=1):
         text=prompt,
         seed=-1,
         grid_size=1,
+        progressive_outputs=True,
         top_k=256,
         supercondition_factor=16,
         is_verbose=False

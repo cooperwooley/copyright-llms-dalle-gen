@@ -5,10 +5,10 @@ from torchvision.utils import save_image
 from min_dalle import MinDalle
 
 # Config
-PROMPTS_FILE = "samples/input/simple.jsonl"
-OUTPUT_DIR = Path("samples/outputs/simple")
+PROMPTS_FILE = "samples/input/exp_prompts.json"
+OUTPUT_DIR = Path("dalle-output/explicit")
 MODEL_NAME = "dalle-mini/dalle-mega"
-NUM_IMAGES = 10
+NUM_IMAGES = 502
 
 OUTPUT_DIR.mkdir(exist_ok=True)
 
@@ -27,10 +27,7 @@ model = MinDalle(
 # Load prompts
 prompts = []
 with open(PROMPTS_FILE, "r") as f:
-    for i, line in enumerate(f):
-        if i >= NUM_IMAGES:
-            break
-        prompts.append(json.loads(line)["prompt"])
+    prompts = json.load(f)[:NUM_IMAGES]
     
 print(f"Loaded {len(prompts)} prompts.")
 

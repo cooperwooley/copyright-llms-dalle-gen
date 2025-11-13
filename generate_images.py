@@ -5,8 +5,8 @@ from torchvision.utils import save_image
 from min_dalle import MinDalle
 
 # Config
-PROMPTS_FILE = "samples/input/sample_prompts.jsonl"
-OUTPUT_DIR = Path("samples/outputs")
+PROMPTS_FILE = "samples/input/simple.jsonl"
+OUTPUT_DIR = Path("samples/outputs/simple")
 MODEL_NAME = "dalle-mini/dalle-mega"
 NUM_IMAGES = 10
 
@@ -41,7 +41,7 @@ for i, prompt in enumerate(prompts, start=1):
     image = model.generate_image(
         text=prompt,
         seed=-1,
-        grid_size=2,
+        grid_size=1,
         is_seamless=False,
         temperature=1,
         top_k=256,
